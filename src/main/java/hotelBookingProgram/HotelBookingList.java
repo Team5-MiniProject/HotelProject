@@ -17,7 +17,7 @@ public class HotelBookingList {
     public int getListIndex(String bookingId){
         int tempidx = 0;
         for(int i=0; i<hotelBookingList.size(); i++){
-            if(bookingId == hotelBookingList.get(i).getBookingId()){
+            if(bookingId.equals(hotelBookingList.get(i).getBookingId())){
                 tempidx = i;
                 break;
             }else tempidx = -1;
@@ -36,10 +36,19 @@ public class HotelBookingList {
         }
     }
 
-//  (HB - 1 )
-//    public boolean checkBookingPossible(int stayingDate){
-//        // 매개변수 값과 같은 값을 가진 stayingDate를 갖는 객체가 리스트에 존재한다면
-//        // false를 반환하고 존재하지 않는 다면 True를 반환해라
-//    }
+
+    // bookinglist에 룸넘버랑 숙박날자 저장해야함.
+    public int checkBookingPossible(int stayingDate, String roomNumber){
+        int result = 0;
+        for(int i =0; i<hotelBookingList.size(); i++){
+            if(hotelBookingList.get(i).getStayingDate() == stayingDate &&
+                    hotelBookingList.get(i).getRoomNumber()==roomNumber){
+                result = 1;
+            }result = -1;
+        }
+        return result;
+    }
+
+
 
 }
