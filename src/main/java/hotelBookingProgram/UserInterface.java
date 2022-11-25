@@ -84,7 +84,14 @@ public class UserInterface {
                     } else if(selectedUserMenu == 2){
                         // 조회 메서드
                     } else if(selectedUserMenu == 3){
+
                         // 취소 메서드
+                        System.out.println("예약 번호를 입력하세요");
+                        String bookingId =scanner.next();
+                        if(bookingList.cancelBooking(bookingId)==true) {
+                            bookingList.cancelBooking(bookingId);
+                        } else System.out.println("해당 예약 번호가 존재하지 않습니다.");
+
                     } else if(selectedUserMenu == 4){
                         break Loop;
                     } else{
