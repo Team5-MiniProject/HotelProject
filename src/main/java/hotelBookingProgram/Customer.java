@@ -13,7 +13,7 @@ public class Customer {
     }
 
     public boolean phoneNumber(String tempPhoneNumber) { //tempPhoneNumber: 입력받은 핸드폰번호
-        String regEx = "(010)(.{4})(.{4})";
+        String regEx = "(010)-\\d{4}-\\d{4}";
         if(!Pattern.matches(regEx, tempPhoneNumber))
             return false;
         else {
