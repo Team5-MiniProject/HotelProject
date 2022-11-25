@@ -16,11 +16,25 @@ public class RoomList {
     }
 
     // (RL-1) 룸 전체 목록 뽑아내는 메서드
+    public void printAllRoomList(){
+        for(Room room : roomList){
+            System.out.println(room);
+        }
+        System.out.println();
+    }
+
 
     // (RL-2) 룸 넘버를 입력하면 해당 방 금액을 리턴하는 메서드
     public int getRoomPrice(String roomNumber){
-        int index = roomList.indexOf(roomNumber);
-        return roomList.get(index).getRoomPrice();
+        int selectedRoomPrice = 0;
+        for(int i=0; i<roomList.size(); i++){
+            if(roomNumber.equals(roomList.get(i).getRoomNumber())){
+                selectedRoomPrice = roomList.get(i).getRoomPrice();
+                break;
+            } selectedRoomPrice = -1;
+        }
+        return selectedRoomPrice;
     }
 
 }
+
