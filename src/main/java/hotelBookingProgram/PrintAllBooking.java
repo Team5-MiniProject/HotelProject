@@ -2,12 +2,11 @@ package hotelBookingProgram;
 
 public class PrintAllBooking {
 
-    public PrintAllBooking() {
+    public void PrintAllBooking() {
 
-        for (HotelBooking hotelBooking : HotelBookingList) {
+        for (HotelBooking hotelBooking : hotelBookingList) {
             System.out.println(hotelBooking);
         }
-        System.out.println();
         }
     }
 
