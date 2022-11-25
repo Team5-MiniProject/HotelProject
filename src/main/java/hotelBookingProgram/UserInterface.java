@@ -8,7 +8,7 @@ public class UserInterface {
         int selectedMenu = 0;
         int selectedUserMenu = 0;
         Scanner scanner = new Scanner(System.in);
-
+        HotelBookingList bookingList = new HotelBookingList();
 
         while (true){
 
@@ -47,12 +47,51 @@ public class UserInterface {
                     selectedUserMenu = scanner.nextInt();
                     System.out.println("==============================");
 
-                    if( selectedUserMenu == 1){
-                        // 예약 메소드
+                    if( selectedUserMenu == 1) {
+//
+//                        HotelBooking booking = new HotelBooking();
+//
+//                        System.out.println("이름을 입력하세요: ");
+//                        String name = scanner.next();
+//                        booking.setName(name);
+//
+//                        System.out.println("번호를 입력하세요: ");
+//                        String phoneNumber = scanner.next();
+//                        if(booking.setPhoneNumber(phoneNumber)== false){
+//                            System.out.println("잘못된 형식의 번호입니다. 다시 입력해주세요");
+//                            break;
+//                        }
+//
+//                        System.out.println("금액을 입력하세요: ");
+//                        int money = scanner.nextInt();
+//                        booking.setMoney(money);
+//
+//                        if( booking.getMoney() >= 방금액){
+//                            System.out.println(booking.getName()+"님이 머물 수 있는 방입니다.");
+//                            // 목록 출력
+//                            if(호텔.isEmpty == true){
+//                                System.out.println("이미 예약이 완료된 방입니다.");
+//                            }
+//                            else{
+//                                System.out.println("예약이 완료되었습니다.");
+//                                bookingList.add(booking);
+//                            }
+//                        }else{
+//                            System.out.println("금액이 부족합니다.");
+//                        }
+
+
                     } else if(selectedUserMenu == 2){
                         // 조회 메서드
                     } else if(selectedUserMenu == 3){
+
                         // 취소 메서드
+                        System.out.println("예약 번호를 입력하세요");
+                        String bookingId =scanner.next();
+                        if(bookingList.cancelBooking(bookingId)==true) {
+                            bookingList.cancelBooking(bookingId);
+                        } else System.out.println("해당 예약 번호가 존재하지 않습니다.");
+
                     } else if(selectedUserMenu == 4){
                         break Loop;
                     } else{
