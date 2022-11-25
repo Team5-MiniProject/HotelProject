@@ -7,6 +7,7 @@ public class Room {
     private String roomSize;
     private int roomPrice;
 
+
     public Room (String roomNumber, String roomSize, int roomPrice){
         this.roomNumber = roomNumber;
         this.roomSize = roomSize;
@@ -23,6 +24,11 @@ public class Room {
 
     public int getRoomPrice() {
         return roomPrice;
+    }
+
+    @Override
+    public String toString() {
+        return roomNumber+ "     "+roomSize+"      "+roomPrice;
     }
 
 }
