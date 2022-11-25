@@ -10,6 +10,7 @@ public class HotelBooking {
     private final String bookingId;
     private final LocalDateTime bookingDate;
     private int stayingDate;
+    private String roomNumber;
 
     public HotelBooking() {
         this.bookingDate = LocalDateTime.now() ;
@@ -27,6 +28,15 @@ public class HotelBooking {
         this.stayingDate = stayingDate;
     }
 
+    // 고객이 이용할 룸넘버를 저장 받는다.
+    public void RoomNumberCustomerWillStay(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    // 임시 폰넘버 저장 메서드
+    public void setPhoneNumber(String phoneNumber){
+        customer.phoneNumber = phoneNumber;
+    }
 
     public String getBookingId() {
         return bookingId;
@@ -44,16 +54,24 @@ public class HotelBooking {
         return customer.money;
     }
 
-    // 고객 번호를 정규식을 통해 입력 받는 메서드
-    public boolean inputCustomerPhoneNumber(String phoneNumber) { //tempPhoneNumber: 입력받은 핸드폰번호
-        String regEx = "(010)(.{4})(.{4})";
-        if(!Pattern.matches(regEx, phoneNumber))
-            return false;
-        else {
-            customer.phoneNumber = phoneNumber.replaceAll(regEx, "$1-$2-$3");
-            return true;
-        }
+    public int getStayingDate() {
+        return stayingDate;
     }
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    // 고객 번호를 정규식을 통해 입력 받는 메서드 // 에러남 !!
+//    public boolean inputCustomerPhoneNumber(String phoneNumber) { //tempPhoneNumber: 입력받은 핸드폰번호
+//        String regEx = "(010)(.{4})(.{4})";
+//        if(!Pattern.matches(regEx, phoneNumber))
+//            return false;
+//        else {
+//            customer.phoneNumber = phoneNumber.replaceAll(regEx, "$1-$2-$3");
+//            return true;
+//        }
+//    }
 
 }
 
