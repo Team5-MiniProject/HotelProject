@@ -6,37 +6,51 @@ public class Room {
     private String roomNumber;
     private String roomSize;
     private int roomPrice;
+    private boolean isEmpty;
 
-    public Room (String roomNumber, String roomSize, int roomPrice){
+    //전부 public을 private로..
+    public Room(String roomNumber, String roomSize, int roomPrice) {
         this.roomNumber = roomNumber;
         this.roomSize = roomSize;
         this.roomPrice = roomPrice;
+        this.isEmpty = true;
     }
 
-    public String getRoomNumber() {
-        return  roomNumber;
-    }
-    public void setRoomNumber(String roomNumber) { this.roomNumber = roomNumber;
+    private String getRoomNumber() {
+        return roomNumber;
     }
 
-    public String getroomSize() {
+    private void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    private String getroomSize() {
         return roomSize;
     }
-    public void setroomSize(String roomSize) {
+
+    private void setroomSize(String roomSize) {
         this.roomSize = roomSize;
     }
 
-    public int getroomPrice() {
+    private int getroomPrice() {
         return roomPrice;
     }
-    public void setroomPrice(int roomPrice) {
+
+    private void setroomPrice(int roomPrice) {
         this.roomPrice = roomPrice;
     }
 
 
-    public String toString(){
-        return roomNumber +"    "+ roomSize+"    "+roomPrice;
+    public String toString() {
+        return roomNumber + "    " + roomSize + "    " + roomPrice;
     }
+
+    //boolean 만들기
 }
+   // public boolean roomIsEmpty
+    //true/false를 어떻게 알고 나눠줄 것이냐
+
+
+
 
 
