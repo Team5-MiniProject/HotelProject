@@ -2,6 +2,7 @@ package hotelBookingProgram;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HotelBooking {
@@ -72,6 +73,16 @@ public class HotelBooking {
 //            return true;
 //        }
 //    }
+
+    public void compareStayingDateAndNow(){
+
+    }
+
+    public boolean InputPhoneNumber (String str){
+        Pattern pattern = Pattern.compile("^01(?:0|1|[6-9])(?:\\d{3}|\\d{4})\\d{4}$");
+        Matcher matcher = pattern.matcher(str);
+        return matcher.find();
+    }
 
 }
 
