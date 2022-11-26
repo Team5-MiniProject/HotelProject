@@ -1,5 +1,10 @@
 package hotelBookingProgram;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,7 +30,7 @@ public class Hotel {
     }
 
     // 1. 예약 받기 - 고객 객체를 생성해야함 / 예약 객체를 생성해야함 / 예약 리스트에 추가해야함.
-    public void receiveBooking() {
+    public void receiveBooking() throws ParseException {
 
         HotelBooking hotelBooking = new HotelBooking();
 
@@ -59,10 +64,27 @@ public class Hotel {
         String tempStayingDate = scanner.next();
         Matcher matcher = StayingDatePattern.matcher(tempStayingDate);
 
-        if(!matcher.find()){
+        if(matcher.find()==false){
             System.out.println("형식에 맞게 입력해주세요.");
             return;
         }
+
+        // 함수 처리 해야함
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date currentTime = new Date();
+        String Nowdate = format.format(currentTime);
+
+        Date inputDate = format.parse(tempStayingDate);
+        Date today = format.parse(Nowdate);
+
+        int compare = inputDate.compareTo(today);
+
+        if (compare < 0) {
+            System.out.println("이미 지난 날짜 입니다. 다시 입력해주세요.");
+            return;
+        }
+
+
 
         // 기존 예약중 입력 받은 룸넘버와 숙박 날짜와 같은 예약이 있으면 -1을 반환한다.
         int checkBookingPossible = hotelBookingList.checkBookingPossible(tempStayingDate,tempRoomNumber);

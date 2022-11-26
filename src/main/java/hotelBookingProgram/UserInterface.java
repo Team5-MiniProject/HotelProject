@@ -1,10 +1,11 @@
 package hotelBookingProgram;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class UserInterface {
 
-    public void userInterfaceRun(){
+    public void usrInterfaceRun() throws ParseException {
         int selectedMenu = 0;
         int selectedUserMenu = 0;
         Scanner scanner = new Scanner(System.in);
@@ -48,11 +49,11 @@ public class UserInterface {
                     System.out.println("==============================");
 
                     if( selectedUserMenu == 1) {
-
+                        theBestHotel.receiveBooking();
                     } else if(selectedUserMenu == 2){
                         // 조회 메서드
                     } else if(selectedUserMenu == 3){
-
+                        theBestHotel.bookingCancel();
                     } else if(selectedUserMenu == 4){
                         break Loop;
                     } else{
