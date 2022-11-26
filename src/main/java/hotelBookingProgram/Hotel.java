@@ -11,6 +11,7 @@ public class Hotel {
     private int hotelMoeny;
     private HotelBookingList hotelBookingList = new HotelBookingList();
     private RoomList roomList = new RoomList();
+    private String hotelAdminPsq = "0000";
 
     // 호텔 자산을 불러온다.
     public int getHotelMoeny() {
@@ -92,7 +93,7 @@ public class Hotel {
     }
 
     // 2. 예약 취소 - 생성된
-    public void bookingCancel(){
+    public void cancelBookingByUser(){
         System.out.println("예약번호를 입력하세요: ");
         String tempBookingId = scanner.next();
 
@@ -101,7 +102,6 @@ public class Hotel {
         }else System.out.println("해당하는 예약을 찾을 수 없습니다.");
 
     }
-
 
 
     // 3. 고객 예약 확인
