@@ -1,25 +1,23 @@
 package hotelBookingProgram;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Hotel {
 
     Scanner scanner = new Scanner(System.in);
 
-    private int hotelMoeny;
+    private int hotelMoney;
     private HotelBookingList hotelBookingList = new HotelBookingList();
     private RoomList roomList = new RoomList();
 
     // 호텔 자산을 불러온다.
-    public int getHotelMoeny() {
-        return hotelMoeny;
+    public int getHotelMoney() {
+        return hotelMoney;
     }
 
     // 호텔의 자산이 늘어나거나 줄어든다.
     public void hotelLoseAndEarnMoney(int hotelMoeny) {
-        this.hotelMoeny = hotelMoeny;
+        this.hotelMoney = hotelMoeny;
     }
 
     // 질문점 ( 중간에 잘못된 번호를 입력 받거나 결제 금액이 다르거나 할 때 메서드를 종료 시키는
@@ -72,7 +70,7 @@ public class Hotel {
             System.out.println(hotelBooking.getBookingId());
 
             // 호텔 자산에 돈을 추가한다.
-            hotelMoeny +=tempMoney;
+            hotelMoney +=tempMoney;
         }else if(tempMoney < tempRoomMoeny){
             System.out.println("금액이 부족합니다.");
         }else System.out.println("결제 오류"); // 오류 메시지 따로 만들까요??

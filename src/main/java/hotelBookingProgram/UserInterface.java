@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    public void usrInterfaceRun(){
+    public void userInterfaceRun(){
         int selectedMenu = 0;
         int selectedUserMenu = 0;
         Scanner scanner = new Scanner(System.in);
