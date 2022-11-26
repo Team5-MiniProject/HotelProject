@@ -36,5 +36,15 @@ public class RoomList {
         return selectedRoomPrice;
     }
 
+    //(RL-3) 입력 받은 룸넘버를 가진 Room객체가 리스트에 존재하는지 확인하는 메서드
+    public Room getRoom(String roomNumber){
+        for(Room room : this.roomList){
+            if(room.getRoomNumber().equals(roomNumber)){
+                return room;
+            }
+        }
+        throw new IllegalArgumentException("존재하지 않는 방입니다.");
+    }
+
 }
 
