@@ -1,20 +1,23 @@
 package hotelBookingProgram;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HotelBooking {
 
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
+
     private Customer customer;
     private final String bookingId;
-    private final LocalDateTime bookingDate;
+    private final String bookingDate;
     private int stayingDate;
     private String roomNumber;
 
     public HotelBooking() {
-        this.bookingDate = LocalDateTime.now() ;
+        this.bookingDate = dateTimeFormatter.format(LocalDateTime.now());
         this.bookingId = UUID.randomUUID().toString();
     }
 
@@ -43,7 +46,7 @@ public class HotelBooking {
         return bookingId;
     }
 
-    public LocalDateTime getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
@@ -63,16 +66,6 @@ public class HotelBooking {
         return roomNumber;
     }
 
-    // 고객 번호를 정규식을 통해 입력 받는 메서드 // 에러남 !!
-//    public boolean inputCustomerPhoneNumber(String phoneNumber) { //tempPhoneNumber: 입력받은 핸드폰번호
-//        String regEx = "(010)(.{4})(.{4})";
-//        if(!Pattern.matches(regEx, phoneNumber))
-//            return false;
-//        else {
-//            customer.phoneNumber = phoneNumber.replaceAll(regEx, "$1-$2-$3");
-//            return true;
-//        }
-//    }
 
     public void compareStayingDateAndNow(){
 
