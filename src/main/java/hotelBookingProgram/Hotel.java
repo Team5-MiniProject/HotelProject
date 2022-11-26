@@ -1,12 +1,13 @@
 package hotelBookingProgram;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Hotel {
 
     Scanner scanner = new Scanner(System.in);
+    Pattern StayingDatePattern = Pattern.compile("\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])");
 
     private int hotelMoeny;
     private HotelBookingList hotelBookingList = new HotelBookingList();
@@ -54,8 +55,14 @@ public class Hotel {
         }
 
 
-        System.out.println("숙박할 날짜를 입력해주세요 ex)0825: ");
-        int tempStayingDate = scanner.nextInt();
+        System.out.println("숙박할 날짜를 입력해주세요 ex)2022-12-25 : ");
+        String tempStayingDate = scanner.next();
+        Matcher matcher = StayingDatePattern.matcher(tempStayingDate);
+
+        if(!matcher.find()){
+            System.out.println("형식에 맞게 입력해주세요.");
+            return;
+        }
 
         // 기존 예약중 입력 받은 룸넘버와 숙박 날짜와 같은 예약이 있으면 -1을 반환한다.
         int checkBookingPossible = hotelBookingList.checkBookingPossible(tempStayingDate,tempRoomNumber);
