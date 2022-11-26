@@ -11,7 +11,7 @@ public class Hotel {
     private int hotelMoeny;
     private HotelBookingList hotelBookingList = new HotelBookingList();
     private RoomList roomList = new RoomList();
-    private String hotelAdminPsq = "0000";
+    private int hotelAdimPsw = 0000;
 
     // 호텔 자산을 불러온다.
     public int getHotelMoeny() {
@@ -35,11 +35,11 @@ public class Hotel {
         String tempPhoneNumber = scanner.next();
 
         // 에러 발생
-//        // 번호가 맞는 형식으로 입력되어 있는지 확인하고 제대로 입력되면 객체에 저장한다.
-//        if (!(hotelBooking.inputCustomerPhoneNumber(tempPhoneNumber))) {
-//            System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
-//        }
-
+        // 번호가 맞는 형식으로 입력되어 있는지 확인하고 제대로 입력되면 객체에 저장한다.
+        if (!(hotelBooking.InputPhoneNumber(tempPhoneNumber))) {
+            System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
+            return;
+        }
 
         // 호텔 방 목록을 보여준다. 호텔 룸 프린트 메서드 실행 (RL-1)
         System.out.println("============================");
@@ -48,6 +48,11 @@ public class Hotel {
 
         System.out.println("원하는 방 번호를 입력하세요: ");
         String tempRoomNumber = scanner.next();
+
+        if(!(roomList.getRoom(tempRoomNumber))){
+            return;
+        }
+
 
         System.out.println("숙박할 날짜를 입력해주세요 ex)0825: ");
         int tempStayingDate = scanner.nextInt();
@@ -93,7 +98,7 @@ public class Hotel {
     }
 
     // 2. 예약 취소 - 생성된
-    public void cancelBookingByUser(){
+    public void bookingCancel(){
         System.out.println("예약번호를 입력하세요: ");
         String tempBookingId = scanner.next();
 
@@ -102,6 +107,7 @@ public class Hotel {
         }else System.out.println("해당하는 예약을 찾을 수 없습니다.");
 
     }
+
 
 
     // 3. 고객 예약 확인
