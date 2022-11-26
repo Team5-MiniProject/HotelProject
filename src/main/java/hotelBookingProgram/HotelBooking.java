@@ -6,14 +6,15 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class HotelBooking {
 
-    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
+    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
 
     private Customer customer;
     private final String bookingId;
     private final String bookingDate;
-    private int stayingDate;
+    private String stayingDate;
     private String roomNumber;
 
     public HotelBooking() {
@@ -28,7 +29,7 @@ public class HotelBooking {
     }
 
     // 고객이 호텔을 이용할 날짜를 입력 받음.
-    public void dateTheCustomerWillStay(int stayingDate){
+    public void dateTheCustomerWillStay(String stayingDate){
         this.stayingDate = stayingDate;
     }
 
@@ -58,7 +59,7 @@ public class HotelBooking {
         return customer.money;
     }
 
-    public int getStayingDate() {
+    public String getStayingDate() {
         return stayingDate;
     }
 

@@ -38,11 +38,11 @@ public class HotelBookingList {
 
 
     // bookinglist에 룸넘버랑 숙박날자 저장해야함.
-    public int checkBookingPossible(int stayingDate, String roomNumber){
+    public int checkBookingPossible(String stayingDate, String roomNumber){
         int result = 0;
         for(int i =0; i<hotelBookingList.size(); i++){
-            if(hotelBookingList.get(i).getStayingDate() == stayingDate &&
-                    hotelBookingList.get(i).getRoomNumber()==roomNumber){
+            if(hotelBookingList.get(i).getStayingDate().equals(stayingDate) &&
+                    hotelBookingList.get(i).getRoomNumber().equals(roomNumber)){
                 result = 1;
             }result = -1;
         }
