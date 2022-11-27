@@ -39,17 +39,16 @@ public class HotelBookingList {
         }
     }
 
+    // 예약이 중복되지 않도록 예약 날자와 예약
+    public int checkBookingPossible(String stayingDate, String roomNumber) {
 
-    // bookinglist에 룸넘버랑 숙박날자 저장해야함.
-    public int checkBookingPossible(String stayingDate, String roomNumber){
-        int result = 0;
-        for(int i =0; i<hotelBookingList.size(); i++){
-            if(hotelBookingList.get(i).getStayingDate().equals(stayingDate) &&
-                    hotelBookingList.get(i).getRoomNumber().equals(roomNumber)){
-                result = 1;
-            }result = -1;
-        }
-        return result;
+        for(HotelBooking booking : hotelBookingList){
+            String tempStayingDate = booking.getStayingDate();
+            String tempRoomNumber = booking.getRoomNumber();
+            if(tempStayingDate.equals(stayingDate) && tempRoomNumber.equals(roomNumber)){
+                return -1;
+            }
+        }return 1;
     }
 
 
