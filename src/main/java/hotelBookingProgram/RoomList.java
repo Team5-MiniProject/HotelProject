@@ -15,6 +15,10 @@ public class RoomList {
         this.roomList.add(new Room("105", "스위트",420_000));
     }
 
+    public List<Room> getRoomList() {
+        return roomList;
+    }
+
     // (RL-1) 룸 전체 목록 뽑아내는 메서드
     public void printAllRoomList(){
         for(Room room : roomList){
@@ -50,16 +54,12 @@ public class RoomList {
         return false;
     }
 
+    //(RL-4) 룸넘버 입력하면 해당 룸의 인덱스를 반환해주는 메서드
+    public int getRoomIndex(String RoomNumber){
+        return roomList.indexOf(RoomNumber);
+    }
 
-    // (뭔가 문제 있음)
-//    public void getRoom(String roomNumber){
-//        for(Room room : this.roomList){
-//            if(room.getRoomNumber().equals(roomNumber)){
-//                System.out.println(roomNumber+"방을 선택하셨습니다.");
-//            }
-//        }
-//        throw new IllegalArgumentException("존재하지 않는 방입니다.");
-//    }
+
 
 }
 
