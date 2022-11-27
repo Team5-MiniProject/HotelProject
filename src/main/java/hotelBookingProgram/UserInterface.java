@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    public void usrInterfaceRun() throws ParseException {
+    public void userInterfaceRun() throws ParseException {
         int selectedMenu = 0;
         int selectedUserMenu = 0;
         Scanner scanner = new Scanner(System.in);
