@@ -2,9 +2,7 @@ package hotelBookingProgram;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,19 +12,28 @@ public class Hotel {
     Scanner scanner = new Scanner(System.in);
     Pattern StayingDatePattern = Pattern.compile("\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])");
 
-    private int hotelMoeny;
-    private HotelBookingList hotelBookingList = new HotelBookingList();
-    private RoomList roomList = new RoomList();
-    private int hotelAdimPsw = 0000;
+    private int hotelMoney=0;
+    private final HotelBookingList hotelBookingList = new HotelBookingList();
+    private final RoomList roomList = new RoomList();
+    private int hotelAdminPsw = 0000;
 
-    // 호텔 자산을 불러온다.
-    public int getHotelMoeny() {
-        return hotelMoeny;
+    // 호텔 관리자 비밀번호 리턴하는 함수
+    public int getHotelAdminPsw() {
+        return hotelAdminPsw;
     }
 
-    // 호텔의 자산이 늘어나거나 줄어든다.
-    public void hotelLoseAndEarnMoney(int hotelMoeny) {
-        this.hotelMoeny = hotelMoeny;
+    // 호텔 자산이 줄어든다.
+    public void loseHotelMoney(int hotelMoney) {
+        this.hotelMoney -= hotelMoney;
+    }
+
+    // 호텔 자산에서 입력 금액이 입금된다.
+    public void addHotelMoney(int hotelMoney){
+        this.hotelMoney += hotelMoney;
+    }
+
+    public int getHotelMoney() {
+        return hotelMoney;
     }
 
     // 1. 예약 받기 - 고객 객체를 생성해야함 / 예약 객체를 생성해야함 / 예약 리스트에 추가해야함.
@@ -64,7 +71,7 @@ public class Hotel {
         String tempStayingDate = scanner.next();
         Matcher matcher = StayingDatePattern.matcher(tempStayingDate);
 
-        if(matcher.find()==false){
+        if(!matcher.find()){
             System.out.println("형식에 맞게 입력해주세요.");
             return;
         }
@@ -119,7 +126,8 @@ public class Hotel {
             System.out.println(hotelBooking.getBookingId());
 
             // 호텔 자산에 돈을 추가한다.
-            hotelMoeny +=tempMoney;
+            addHotelMoney(tempMoney);
+
         }else if(tempMoney < tempRoomMoney){
             System.out.println("금액이 부족합니다.");
         }else System.out.println("결제 오류"); // 오류 메시지 따로 만들까요??
@@ -131,17 +139,24 @@ public class Hotel {
         System.out.println("예약번호를 입력하세요: ");
         String tempBookingId = scanner.next();
 
+        // 예약번호로 해당 룸넘버를 받아오고, 받아온 룸넘버로 해당 방의 가격을 tempRoomPrice 변수에 저장한다.
+        String tempRoomNumber = hotelBookingList.getRoomNumberByBookingId(tempBookingId);
+        int tempRoomPrice = roomList.getRoomPrice(tempRoomNumber);
+
         if(hotelBookingList.cancelBooking(tempBookingId)){
+            loseHotelMoney(tempRoomPrice);
             System.out.println("예약이 취소되었습니다.");
         }else System.out.println("해당하는 예약을 찾을 수 없습니다.");
-
     }
-
 
 
     // 3. 고객 예약 확인
 
     // 4. 호텔 예약 확인
 
+    // 5. 호텔 자산 출력 함수
+    public void printHotelMoney(){
+        System.out.println("현재 호텔 총 자산: "+getHotelMoney());
+    }
 
 }
