@@ -72,10 +72,10 @@ public class Hotel {
         // 함수 처리 해야함
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date currentTime = new Date();
-        String Nowdate = format.format(currentTime);
+        String dateNow = format.format(currentTime);
 
         Date inputDate = format.parse(tempStayingDate);
-        Date today = format.parse(Nowdate);
+        Date today = format.parse(dateNow);
 
         int compare = inputDate.compareTo(today);
 
