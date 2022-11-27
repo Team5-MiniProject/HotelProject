@@ -7,6 +7,9 @@ public class HotelBookingList {
 
     private List<HotelBooking> hotelBookingList = new ArrayList<>();
 
+    public List<HotelBooking> getHotelBookingList() {
+        return hotelBookingList;
+    }
 
     // 예약을 예약 리스트에 추가한다.
     public void add(HotelBooking hotelBooking){
