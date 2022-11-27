@@ -27,7 +27,9 @@ public class UserInterface {
                 System.out.println("관리자 비밀번호를 입력해주세요:");
                 tempAdminPsw = scanner.nextInt();
 
-                if(tempAdminPsw == 0 /*관리자 비밀번호랑 비교*/){
+                /*관리자 비밀번호랑 비교*/
+                if(tempAdminPsw == theBestHotel.getHotelAdminPsw()){
+                    theBestHotel.printHotelMoney();
                     // printAllBooking();
                 }else{
                     System.out.println("잘못된 비밀번호 입니다.");
@@ -56,7 +58,7 @@ public class UserInterface {
                         theBestHotel.bookingCancel();
                     } else if(selectedUserMenu == 4){
                         break Loop;
-                    } else{
+                    }else{
                         System.out.println("잘못된 입력입니다.");
                         continue;
                     }
