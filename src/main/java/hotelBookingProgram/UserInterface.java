@@ -16,6 +16,7 @@ public class UserInterface {
             System.out.println("========== 쵝5조 호텔 ==========");
             System.out.println("1. 관리자");
             System.out.println("2. 고객");
+            System.out.println("0. 시스템 종료");
             System.out.println("==============================");
 
             System.out.println("번호를 입력해주세요: ");
@@ -45,6 +46,7 @@ public class UserInterface {
                     System.out.println("2. 예약 조회");
                     System.out.println("3. 예약 취소");
                     System.out.println("4. 돌아 가기");
+                    System.out.println("0. 시스템 종료");
                     System.out.println();
                     System.out.println("원하시는 메뉴를 선택해주세요!");
                     selectedUserMenu = scanner.nextInt();
@@ -58,17 +60,26 @@ public class UserInterface {
                         theBestHotel.cancelBookingByCustomer();
                     } else if(selectedUserMenu == 4){
                         break Loop;
+                    } else if(selectedUserMenu == 0) {
+                        System.out.println("종료합니다.");
+                        System.exit(0);
                     }else{
-                        System.out.println("잘못된 입력입니다.");
+                        System.out.println("잘못된 입력입니다");
                         continue;
+
                     }
 
                 }
+
+            } else if(selectedMenu == 0) {
+                System.out.println("종료합니다.");
+                System.exit(0);
 
             }else{
                 System.out.println("ERROR!");
                 System.out.println("다시 입력해주세요.");
                 continue;
+
             }
 
         }
