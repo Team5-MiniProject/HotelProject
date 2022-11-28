@@ -30,7 +30,7 @@ public class UserInterface {
                 /*관리자 비밀번호랑 비교*/
                 if(tempAdminPsw == theBestHotel.getHotelAdminPsw()){
                     theBestHotel.printHotelMoney();
-                    // printAllBooking();
+                    theBestHotel.printBookingListByHotel();
                 }else{
                     System.out.println("잘못된 비밀번호 입니다.");
                     continue;

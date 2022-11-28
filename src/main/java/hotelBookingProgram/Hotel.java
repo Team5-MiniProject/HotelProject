@@ -177,6 +177,22 @@ public class Hotel {
         System.out.println("예약번호 : " + bookingID);
     }
     // 4. 호텔 예약 확인
+    public void printBookingListByHotel(){
+        for(HotelBooking hotelBooking: hotelBookingList.getHotelBookingList()){
+            String tempRoomNumber = hotelBooking.getRoomNumber();
+            System.out.println("숙박일 : "+hotelBooking.getStayingDate());
+            System.out.println("고객명 : "+hotelBooking.getName());
+            System.out.println("방 번호 : "+hotelBooking.getRoomNumber());
+            System.out.println("방 크기 : "+roomList.getRoomSize(tempRoomNumber));
+            System.out.println("가격 : "+roomList.getRoomPrice(tempRoomNumber));
+            System.out.println("예약시점 : "+hotelBooking.getBookingDate());
+            System.out.println("예약번호 : "+hotelBooking.getBookingId());
+            System.out.println("===========================================");
+            System.out.println();
+        }
+    }
+
+
 
     // 5. 호텔 자산 출력 함수
     public void printHotelMoney(){
