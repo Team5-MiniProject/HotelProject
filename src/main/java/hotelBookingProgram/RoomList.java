@@ -28,18 +28,6 @@ public class RoomList {
     }
 
 
-    // (RL-2) 룸 넘버를 입력하면 해당 방 금액을 리턴하는 메서드 (잘 돌아감_혹시 모를 상황 대비해 놔둠 )
-//    public int getRoomPrice(String roomNumber){
-//        int selectedRoomPrice = 0;
-//        for(int i=0; i<roomList.size(); i++){
-//            if(roomNumber.equals(roomList.get(i).getRoomNumber())){
-//                selectedRoomPrice = roomList.get(i).getRoomPrice();
-//                break;
-//            } selectedRoomPrice = -1;
-//        }
-//        return selectedRoomPrice;
-//    }
-
     // (RL-2) 룸 넘버를 입력하면 해당 방 금액을 리턴하는 메서드
     public int getRoomPrice(String roomNumber){
         for(Room room : roomList){
@@ -63,8 +51,7 @@ public class RoomList {
     }
 
     //(RL-4) 룸넘버 입력하면 해당 룸의 인덱스를 반환해주는 메서드
-    // 작성해둔 메서드는 논리적으로 틀렸고, 어디에 필요해서 RL-4를 만들려고 하는 지 까먹음.
-    // 그래서 기존 코드 삭제
+
 
 
 }
