@@ -73,7 +73,7 @@ public class HotelBooking {
     }
 
     public boolean InputPhoneNumber (String str){
-        Pattern pattern = Pattern.compile("^01(?:0|1|[6-9])(?:\\d{3}|\\d{4})\\d{4}$");
+        Pattern pattern = Pattern.compile("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$");
         Matcher matcher = pattern.matcher(str);
         return matcher.find();
     }

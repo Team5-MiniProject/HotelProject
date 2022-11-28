@@ -44,10 +44,10 @@ public class Hotel {
         System.out.println("예약자 성함을 입력하세요: ");
         String tempName = scanner.next();
 
-        System.out.println("예약자 전화번호 입력하세요: ");
+        System.out.println("예약자 전화번호 입력하세요. ex)010-1234-1234: ");
         String tempPhoneNumber = scanner.next();
 
-        // 에러 발생
+
         // 번호가 맞는 형식으로 입력되어 있는지 확인하고 제대로 입력되면 객체에 저장한다.
         if (!(hotelBooking.InputPhoneNumber(tempPhoneNumber))) {
             System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
