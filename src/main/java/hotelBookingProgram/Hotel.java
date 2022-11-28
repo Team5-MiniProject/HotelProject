@@ -157,28 +157,32 @@ public class Hotel {
 
     // 3. 고객 예약 확인
     // 예약 번호 입력받아 해당 예약 번호를 가진 예약 정보를 호출하는 메서드
-    public void checkBookingByCustomer(){
+    public void checkBookingByCustomer() {
         System.out.println("예약번호를 입력하세요: ");
         String tempBookingId = scanner.next();
 
-        int idx = hotelBookingList.getListIndex(tempBookingId);
-        List<HotelBooking> bookingList = hotelBookingList.getHotelBookingList();
+        try {
+            int idx = hotelBookingList.getListIndex(tempBookingId);
+            List<HotelBooking> bookingList = hotelBookingList.getHotelBookingList();
 
-        String stayingDate = bookingList.get(idx).getStayingDate();
-        String roomNumber = bookingList.get(idx).getRoomNumber();
-        String bookingDate = bookingList.get(idx).getBookingDate();
-        String bookingID = bookingList.get(idx).getBookingId();
-        String name = bookingList.get(idx).getName();
-        String roomSize = roomList.getRoomSize(roomNumber);
-        int roomPrice = roomList.getRoomPrice(roomNumber);
+            String stayingDate = bookingList.get(idx).getStayingDate();
+            String roomNumber = bookingList.get(idx).getRoomNumber();
+            String bookingDate = bookingList.get(idx).getBookingDate();
+            String bookingID = bookingList.get(idx).getBookingId();
+            String name = bookingList.get(idx).getName();
+            String roomSize = roomList.getRoomSize(roomNumber);
+            int roomPrice = roomList.getRoomPrice(roomNumber);
 
-        System.out.println("숙박일  : " + stayingDate);
-        System.out.println("예약자명 : " + name);
-        System.out.println("방 번호 : " + roomNumber);
-        System.out.println("방 크기 : " + roomSize);
-        System.out.println("가 격  : " + roomPrice);
-        System.out.println("예약일  : " + bookingDate);
-        System.out.println("예약번호 : " + bookingID);
+            System.out.println("숙박일  : " + stayingDate);
+            System.out.println("예약자명 : " + name);
+            System.out.println("방 번호 : " + roomNumber);
+            System.out.println("방 크기 : " + roomSize);
+            System.out.println("가 격  : " + roomPrice);
+            System.out.println("예약일  : " + bookingDate);
+            System.out.println("예약번호 : " + bookingID);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("잘못된 예약 번호 입니다.");
+        }
     }
     // 4. 호텔 예약 확인
     public void printBookingListByHotel(){
