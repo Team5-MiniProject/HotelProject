@@ -55,7 +55,7 @@ public class UserInterface {
                     } else if(selectedUserMenu == 2){
                         theBestHotel.checkBookingByCustomer();
                     } else if(selectedUserMenu == 3){
-                        theBestHotel.bookingCancel();
+                        theBestHotel.cancelBookingByCustomer();
                     } else if(selectedUserMenu == 4){
                         break Loop;
                     }else{

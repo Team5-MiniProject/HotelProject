@@ -136,7 +136,7 @@ public class Hotel {
     }
 
     // 2. 예약 취소 - 생성된
-    public void bookingCancel(){
+    public void cancelBookingByCustomer(){
         System.out.println("예약번호를 입력하세요: ");
         String tempBookingId = scanner.next();
 
