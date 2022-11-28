@@ -36,7 +36,7 @@ public class UserInterface {
                     continue;
                 }
 
-            }else{
+            }else if(selectedMenu == 2){
                 Loop:
                 while(true){
                     System.out.println("========== 쵝5조 호텔 ==========");
@@ -65,6 +65,10 @@ public class UserInterface {
 
                 }
 
+            }else{
+                System.out.println("ERROR!");
+                System.out.println("다시 입력해주세요.");
+                continue;
             }
 
         }
