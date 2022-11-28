@@ -9,10 +9,25 @@ public class RoomList {
 
     public RoomList(){
         this.roomList.add(new Room("101", "스탠다드",120_000));
-        this.roomList.add(new Room("102", "더블룸(싱글배드)",220_000));
-        this.roomList.add(new Room("103", "더블룸(더블배드)",220_000));
-        this.roomList.add(new Room("104", "패밀리룸",320_000));
-        this.roomList.add(new Room("105", "스위트",420_000));
+        this.roomList.add(new Room("102", "스탠다드",120_000));
+        this.roomList.add(new Room("103", "스탠다드",120_000));
+        this.roomList.add(new Room("104", "스탠다드",120_000));
+        this.roomList.add(new Room("105", "스탠다드",120_000));
+        this.roomList.add(new Room("201", "더블룸(싱글배드)",220_000));
+        this.roomList.add(new Room("202", "더블룸(싱글배드)",220_000));
+        this.roomList.add(new Room("203", "더블룸(더블배드)",220_000));
+        this.roomList.add(new Room("204", "더블룸(더블배드)",220_000));
+        this.roomList.add(new Room("205", "더블룸(더블배드)",220_000));
+        this.roomList.add(new Room("301", "패밀리룸",320_000));
+        this.roomList.add(new Room("302", "패밀리룸",320_000));
+        this.roomList.add(new Room("303", "패밀리룸",320_000));
+        this.roomList.add(new Room("304", "패밀리룸",320_000));
+        this.roomList.add(new Room("305", "패밀리룸",320_000));
+        this.roomList.add(new Room("401", "스위트",420_000));
+        this.roomList.add(new Room("402", "스위트",420_000));
+        this.roomList.add(new Room("403", "스위트",420_000));
+        this.roomList.add(new Room("404", "NOT_FOUND",0));
+        this.roomList.add(new Room("405", "스위트",420_000));
     }
 
     public List<Room> getRoomList() {
