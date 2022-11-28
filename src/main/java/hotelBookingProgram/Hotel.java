@@ -141,13 +141,17 @@ public class Hotel {
         String tempBookingId = scanner.next();
 
         // 예약번호로 해당 룸넘버를 받아오고, 받아온 룸넘버로 해당 방의 가격을 tempRoomPrice 변수에 저장한다.
+        try{
         String tempRoomNumber = hotelBookingList.getRoomNumberByBookingId(tempBookingId);
         int tempRoomPrice = roomList.getRoomPrice(tempRoomNumber);
 
-        if(hotelBookingList.cancelBooking(tempBookingId)){
-            loseHotelMoney(tempRoomPrice);
-            System.out.println("예약이 취소되었습니다.");
-        }else System.out.println("해당하는 예약을 찾을 수 없습니다.");
+            if (hotelBookingList.cancelBooking(tempBookingId)) {
+                loseHotelMoney(tempRoomPrice);
+                System.out.println("예약이 취소되었습니다.");
+            } else System.out.println("해당하는 예약을 찾을 수 없습니다.");
+        }catch (IllegalArgumentException e){
+            System.out.println( e.getMessage() + "   해당하는 예약을 찾을 수 없습니다." );
+        }
     }
 
 
