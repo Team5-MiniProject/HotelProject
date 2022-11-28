@@ -53,6 +53,15 @@ public class RoomList {
     //(RL-4) 룸넘버 입력하면 해당 룸의 인덱스를 반환해주는 메서드
 
 
+    // 룸넘버 입력 받으면 해당 룸의 크기를 반환하는 메서드
+    public String getRoomSize(String roomNumber){
+        for(Room room: roomList){
+            if(room.getRoomNumber().equals(roomNumber)){
+                return room.getRoomSize();
+            }
+        }throw new IllegalArgumentException("ERROR");
+    }
+
 
 }
 

@@ -53,7 +53,7 @@ public class UserInterface {
                     if( selectedUserMenu == 1) {
                         theBestHotel.receiveBooking();
                     } else if(selectedUserMenu == 2){
-                        // 조회 메서드
+                        theBestHotel.checkBookingByCustomer();
                     } else if(selectedUserMenu == 3){
                         theBestHotel.bookingCancel();
                     } else if(selectedUserMenu == 4){
